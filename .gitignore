@@ -76,3 +76,4 @@ HorariosBack/project.fragment.lock.json
 HorariosBack/artifacts/
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio,visualstudiocode,angular,dotnetcore
+HorariosBack/appsettings.json
