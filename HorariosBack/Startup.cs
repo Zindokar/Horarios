@@ -31,6 +31,16 @@ namespace HorariosBack
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
+      services.AddCors(options =>
+      {
+        options.AddPolicy("corson", builder =>
+        {
+          builder.AllowAnyOrigin()
+                 .AllowAnyHeader()
+                 .AllowAnyMethod();
+        });
+      });
+
       // Replace with your connection string.
       var connectionString = Configuration.GetSection("Auth")["ConnectionString"];
 
@@ -77,6 +87,8 @@ namespace HorariosBack
       }
 
       app.UseHttpsRedirection();
+
+      app.UseCors("corson");
 
       app.UseRouting();
 
